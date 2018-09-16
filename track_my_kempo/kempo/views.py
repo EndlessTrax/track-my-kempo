@@ -1,6 +1,9 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse('<h1>Hello World</h1>')
+    return render(request, 'kempo/index.html')
+
+
+def training_log(request):
+    return render(request, 'kempo/training.html')
