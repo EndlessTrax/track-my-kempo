@@ -123,3 +123,6 @@ STATIC_URL = '/static/'
 
 # Cripsy Forms CSS template
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'training-log'
+LOGIN_URL = 'login'
