@@ -1,0 +1,24 @@
+{% extends 'kempo/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col">
+                <h1 class="text-center">Add New Technique / Form</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-inline">
+                        <!-- <input type="text" class="form-control" id="title" placeholder="Name of the technique..."> -->
+                        {{ form | crispy }}
+                        <button type="submit" class="btn btn-success ml-2">Add</button>
+                    </div>                  
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,5 +1,31 @@
 {% extends 'kempo/base.html' %}
 
 {% block content %}
-    <h1>This is the training page!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center">Training Log</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Technique</th>
+                            <th scope="col">Last Practiced</th>
+                            <th scope="col">Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Some Kempo</td>
+                            <td>Some Date</td>
+                            <td><button class="btn btn-sm btn-success">Update</button></td>
+                        </tr>                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
 {% endblock content %}
