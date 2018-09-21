@@ -7,15 +7,14 @@ from .models import Technique
 
 # from django.views.generic import ListView
 
-
-def home(request):
-    return render(request, 'kempo/index.html')
-
-
 # class SomeListView(ListView):
 #     model = Technique
 #     template_name = 'kempo/home.html'
 #     context_object_name = ''
+
+
+def home(request):
+    return render(request, 'kempo/index.html')
 
 
 def register(request):
