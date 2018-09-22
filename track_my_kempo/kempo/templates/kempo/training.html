@@ -18,11 +18,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Some Kempo</td>
-                            <td>Some Date</td>
-                            <td><button class="btn btn-sm btn-success">Update</button></td>
-                        </tr>                      
+                        {% for item in user_techniques %}
+                            <tr>
+                                <td>{{ item.title }}</td>
+                                <td>{{ item.date_practiced }}</td>
+                                <td>
+                                    <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Update</a>
+                                </td>
+                            </tr>
+                        {% endfor %}                    
                     </tbody>
                   </table>
             </div>

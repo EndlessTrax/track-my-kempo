@@ -31,8 +31,18 @@ def register(request):
 
 
 @login_required
-def training_log(request):    
-    return render(request, 'kempo/training.html')
+def training_log(request):
+    user_techniques = Technique.objects.filter(author=request.user)   
+    return render(request, 'kempo/training.html', {'user_techniques': user_techniques})
+
+
+@login_required
+def technique_update(request, id):
+    to_update = Technique.objects.get(pk=id)
+
+    messages.info(request, f'{to_update}')
+    return redirect('training-log')
+
 
 
 @login_required
