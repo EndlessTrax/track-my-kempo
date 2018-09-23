@@ -1,1 +1,1 @@
-web: gunicorn track_my_kempo.wsgi
+web: gunicorn track_my_kempo/track_my_kempo.wsgi
