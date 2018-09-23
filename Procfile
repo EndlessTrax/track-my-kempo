@@ -1,1 +1,1 @@
-web: gunicorn track_my_kempo:app
+web: gunicorn
