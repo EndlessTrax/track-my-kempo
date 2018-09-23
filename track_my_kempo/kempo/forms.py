@@ -12,5 +12,5 @@ class UserRegisterForm(UserCreationForm):
 
 
 class AddTechnique(forms.Form):
-    title = forms.CharField(max_length=50)
+    technique = forms.CharField(max_length=50)
     

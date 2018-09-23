@@ -3,11 +3,11 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col mt-3 mb-3">
                 <h1 class="text-center">Training Log</h1>
             </div>
         </div>
-        <div class="row">
+        <div class="row pb-3">
             <div class="col-md-8 offset-md-2">
                 <table class="table table-striped">
                     <thead>
@@ -18,12 +18,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for item in user_techniques %}
+                        {% for item in list_of_techniques %}
                             <tr>
                                 <td>{{ item.title }}</td>
                                 <td>{{ item.date_practiced }}</td>
                                 <td>
-                                    <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Update</a>
+                                    <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Practiced Today</a>
                                 </td>
                             </tr>
                         {% endfor %}                    

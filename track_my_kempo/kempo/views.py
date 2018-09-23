@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from .forms import UserRegisterForm, AddTechnique
 from .models import Technique
 
+from datetime import datetime
+
 # from django.views.generic import ListView
 
 # class SomeListView(ListView):
@@ -23,7 +25,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created {username}! You are now able to log in.')
+            messages.success(
+                request, f'Your account has been created {username}! You are now able to log in.')
             return redirect('home')
     else:
         form = UserRegisterForm()
@@ -32,17 +35,18 @@ def register(request):
 
 @login_required
 def training_log(request):
-    user_techniques = Technique.objects.filter(author=request.user)   
-    return render(request, 'kempo/training.html', {'user_techniques': user_techniques})
+    user_techniques = Technique.objects.filter(author=request.user)
+    list_of_techniques = user_techniques.order_by('title')
+    return render(request, 'kempo/training.html', {'list_of_techniques': list_of_techniques})
 
 
 @login_required
 def technique_update(request, id):
     to_update = Technique.objects.get(pk=id)
-
-    messages.info(request, f'{to_update}')
+    to_update.date_practiced = datetime.now()
+    to_update.save()
+    messages.info(request, f'{to_update.title} updated!')
     return redirect('training-log')
-
 
 
 @login_required
@@ -50,7 +54,7 @@ def add_new_technique(request):
     if request.method == 'POST':
         form = AddTechnique(request.POST)
         if form.is_valid():
-            title = form.cleaned_data.get('title')
+            title = form.cleaned_data.get('technique')
             author = User.objects.get(username=request.user)
             new_technique = Technique(title=title, author=author)
             new_technique.save()
