@@ -1,11 +1,18 @@
 {% extends 'kempo/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <div class="container">
-    <div class="row">
+    <div class="row mt-3">
         <div class="col text-center">
-            <h1>This is the new index page</h1>
+            <h1>Track MY Kempo</h1>
+            <h3>Log in or Register to begin.</h3>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col text-center">
+            <img src="{% static 'kempo/kempo.jpg' %}" alt="Kempo Image" class="img-fluid">
         </div>
     </div>
 </div>

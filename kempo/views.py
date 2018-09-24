@@ -30,7 +30,7 @@ def register(request):
             return redirect('home')
     else:
         form = UserRegisterForm()
-    return render(request, 'kempo/login.html', {'form': form})
+    return render(request, 'kempo/register.html', {'form': form})
 
 
 @login_required
