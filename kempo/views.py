@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-# from django.utils import timezone
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import UserRegisterForm, AddTechnique
@@ -44,7 +44,7 @@ def training_log(request):
 @login_required
 def technique_update(request, id):
     to_update = Technique.objects.get(pk=id)
-    to_update.date_practiced = datetime.now()
+    to_update.date_practiced = timezone.now()
     to_update.save()
     messages.info(request, f'{to_update.title} updated!')
     return redirect('training-log')

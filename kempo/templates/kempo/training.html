@@ -22,9 +22,7 @@
                         {% for item in list_of_techniques %}
                             <tr>
                                 <td>{{ item.title }}</td>
-                                <td>
-                                    {% localtime on %}{{ item.date_practiced }}{% endlocaltime %}
-                                </td>
+                                <td>{{ item.date_practiced }}</td>
                                 <td>
                                     <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Practiced Today</a>
                                 </td>
