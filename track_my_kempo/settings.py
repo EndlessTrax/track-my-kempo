@@ -134,5 +134,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'endlesstrax@gmail.com'
 EMAIL_HOST_PASSWORD = '01ds0cks'
 
+USE_TZ = True
+
 # Activate Django-Heroku.
 django_heroku.settings(locals())
