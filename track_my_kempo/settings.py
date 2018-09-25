@@ -135,6 +135,7 @@ EMAIL_HOST_USER = 'endlesstrax@gmail.com'
 EMAIL_HOST_PASSWORD = '01ds0cks'
 
 USE_TZ = True
+TIME_ZONE = 'US/Eastern'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
