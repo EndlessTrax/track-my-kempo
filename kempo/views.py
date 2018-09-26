@@ -6,8 +6,6 @@ from django.contrib.auth.models import User
 from .forms import UserRegisterForm, AddTechnique
 from .models import Technique
 
-from datetime import datetime
-
 # from django.views.generic import ListView
 
 # class SomeListView(ListView):
@@ -57,10 +55,43 @@ def add_new_technique(request):
         if form.is_valid():
             title = form.cleaned_data.get('technique')
             author = User.objects.get(username=request.user)
-            new_technique = Technique(title=title, author=author)
+            notes = form.cleaned_data.get('notes')
+            new_technique = Technique(title=title, author=author, notes=notes)
             new_technique.save()
             messages.success(request, f'You have added {title} to your Log.')
             return redirect('training-log')
     else:
         form = AddTechnique()
-    return render(request, 'kempo/new-technique.html', {'form': form})
+        return render(request, 'kempo/new-technique.html', {'form': form})
+
+
+@login_required
+def single_technique(request, id):
+    current_technique = Technique.objects.get(pk=id)
+    return render(request, 'kempo/single-technique.html', {'technique': current_technique})
+
+
+@login_required
+def edit_technique(request, id):
+    current_technique = Technique.objects.get(pk=id)
+    if request.method == 'POST':
+        form = AddTechnique(request.POST)
+        if form.is_valid():
+            updated_title = form.cleaned_data.get('technique')
+            # updated_author = User.objects.get(username=request.user)
+            updated_notes = form.cleaned_data.get('notes')
+            current_technique.title = updated_title
+            current_technique.notes = updated_notes
+            current_technique.save()
+            messages.success(request, f'Update Successful!')
+            return redirect('single-technique', id)
+    else:
+        form = AddTechnique(initial={'technique': current_technique.title, 'notes': current_technique.notes})        
+    return render(request, 'kempo/edit-technique.html', {'technique': current_technique, 'form': form})
+
+
+@login_required
+def delete_technique(request, id):
+    current_technique = Technique.objects.get(pk=id)
+    current_technique.delete()
+    return redirect('training-log')

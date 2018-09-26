@@ -1,0 +1,25 @@
+{% extends 'kempo/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col mt-3 mb-3">
+                <h1 class="text-center">{{ technique.title }}</h1>
+            </div>
+        </div>
+
+        <div class="row pb-3">
+            <div class="col-md-8 offset-md-2">
+                <h3 class="mb-3">Last practiced on: {{ technique.date_practiced }}</h3>
+                <h4>Notes:</h4>
+                <p>{{ technique.notes }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <a href="{% url 'edit-technique' technique.id %}" class="btn btn-small btn-warning">Edit</a>
+                <a href="{% url 'delete-technique' technique.id %}" class="btn btn-small btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
