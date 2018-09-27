@@ -13,4 +13,4 @@ class UserRegisterForm(UserCreationForm):
 
 class AddTechnique(forms.Form):
     technique = forms.CharField(max_length=50)
-    notes = forms.CharField(widget=forms.Textarea)
+    notes = forms.CharField(widget=forms.Textarea, required=False)
