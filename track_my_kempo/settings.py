@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dn%g_&c9g7hwt1+r!ws%iv2==eq6fbq$18#-=x75r!mcz4%%05'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['track-my-kempo.herokuapp.com']
 
@@ -129,7 +129,7 @@ LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'mail.smtp2go.com'
-EMAIL_PORT = 2525
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'contact@rickywhite.net'
 EMAIL_HOST_PASSWORD = 'cXxgtTdKuxKR'
