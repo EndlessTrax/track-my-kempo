@@ -128,11 +128,11 @@ LOGIN_REDIRECT_URL = 'training-log'
 LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'mail.smtp2go.com'
+EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'contact@rickywhite.net'
-EMAIL_HOST_PASSWORD = 'cXxgtTdKuxKR'
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 
 USE_TZ = True
 TIME_ZONE = 'US/Eastern'
