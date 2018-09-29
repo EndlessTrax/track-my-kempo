@@ -36,6 +36,7 @@ def register(request):
 def training_log(request):
     user_techniques = Technique.objects.filter(author=request.user)
     list_of_techniques = user_techniques.order_by('title')
+    # user_categories = 
     return render(request, 'kempo/training.html', {'list_of_techniques': list_of_techniques})
 
 
@@ -55,8 +56,9 @@ def add_new_technique(request):
         if form.is_valid():
             title = form.cleaned_data.get('technique')
             author = User.objects.get(username=request.user)
+            category = form.cleaned_data.get('category')
             notes = form.cleaned_data.get('notes')
-            new_technique = Technique(title=title, author=author, notes=notes)
+            new_technique = Technique(title=title, category=category, author=author, notes=notes)
             new_technique.save()
             messages.success(request, f'You have added {title} to your Log.')
             return redirect('training-log')

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dn%g_&c9g7hwt1+r!ws%iv2==eq6fbq$18#-=x75r!mcz4%%05'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['track-my-kempo.herokuapp.com']
 

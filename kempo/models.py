@@ -8,6 +8,7 @@ class Technique(models.Model):
     notes = models.TextField()
     # Consider changing default DateTime
     date_practiced = models.DateTimeField(default=timezone.now)
+    category = models.CharField(max_length=20, default='Uncategorized')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
 
