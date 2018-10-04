@@ -5,8 +5,13 @@ from .models import Technique
 
 
 list_of_categories = (
+    ('BLOCKS', 'Blocks'),
+    ('BUNKAI', 'Bunkai'),
     ('FORMS', 'Forms'),
-    ('STRIKES', 'Strikes')
+    ('KEMPOS', 'Kempos'),
+    ('OTHER', 'Other'),
+    ('STRIKES', 'Strikes'),
+    ('WEAPONS', 'Weapons')
 )
 
 

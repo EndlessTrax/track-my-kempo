@@ -6,9 +6,8 @@ from django.contrib.auth.models import User
 class Technique(models.Model):
     title = models.CharField(max_length=50)
     notes = models.TextField()
-    # Consider changing default DateTime
     date_practiced = models.DateTimeField(default=timezone.now)
-    category = models.CharField(max_length=20, default='Uncategorized')
+    category = models.CharField(max_length=20, default='OTHER')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
 

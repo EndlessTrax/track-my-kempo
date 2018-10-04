@@ -36,8 +36,13 @@ def register(request):
 def training_log(request):
     user_techniques = Technique.objects.filter(author=request.user)
     list_of_techniques = user_techniques.order_by('title')
-    # user_categories = 
-    return render(request, 'kempo/training.html', {'list_of_techniques': list_of_techniques})
+    list_of_categories = []
+    for item in user_techniques:
+        if item.category not in list_of_categories:
+            list_of_categories.append(item.category)
+       
+    return render(request, 'kempo/training.html', 
+                    {'list_of_techniques': list_of_techniques, 'list_of_categories': list_of_categories})
 
 
 @login_required
@@ -82,7 +87,9 @@ def edit_technique(request, id):
             updated_title = form.cleaned_data.get('technique')
             # updated_author = User.objects.get(username=request.user)
             updated_notes = form.cleaned_data.get('notes')
+            updated_category = form.cleaned_data.get('category')
             current_technique.title = updated_title
+            current_technique.category = updated_category
             current_technique.notes = updated_notes
             current_technique.save()
             messages.success(request, f'Update Successful!')

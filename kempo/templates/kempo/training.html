@@ -9,7 +9,8 @@
         </div>
         <div class="row pb-3">
             <div class="col-md-8 offset-md-2">
-                
+                {% for cat in list_of_categories %}
+                <h3 class="category-title">{{ cat }}</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -20,17 +21,19 @@
                     </thead>
                     <tbody>
                         {% for item in list_of_techniques %}
-                            <tr>
-                                <td><a href="{% url 'single-technique' item.id %}">{{ item.title }}</a></td>
-                                <td>{{ item.date_practiced }}</td>
-                                <td>
-                                    <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Practiced Today</a>
-                                </td>
-                            </tr>
+                            {% if item.category == cat %}  
+                               <tr>                                
+                                    <td><a href="{% url 'single-technique' item.id %}">{{ item.title }}</a></td>
+                                    <td>{{ item.date_practiced }}</td>
+                                    <td>
+                                        <a href="{% url 'update-technique' item.id %}" class="btn btn-sm btn-success">Practiced Today</a>
+                                    </td>
+                                </tr>
+                            {% endif %}
                         {% endfor %}                    
                     </tbody>
                 </table>
-
+                {% endfor %}
             </div>
         </div>
     </div>
