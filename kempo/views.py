@@ -15,7 +15,13 @@ from .models import Technique
 
 
 def home(request):
-    return render(request, 'kempo/index.html')
+    if User.is_authenticated:
+        user_techniques = Technique.objects.filter(author=request.user).order_by('date_practiced')
+        # list_of_techniques = user_techniques.order_by('date_practiced')
+        list_of_techniques = user_techniques.filter()[:5]
+        return render(request, 'kempo/index.html', {'list_of_techniques': list_of_techniques})
+    else:
+        return render(request, 'kempo/index.html')
 
 
 def register(request):
