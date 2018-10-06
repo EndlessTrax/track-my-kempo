@@ -15,7 +15,7 @@ from .models import Technique
 
 
 def home(request):
-    if User.is_authenticated:
+    if request.user.is_authenticated:
         user_techniques = Technique.objects.filter(author=request.user).order_by('date_practiced')
         # list_of_techniques = user_techniques.order_by('date_practiced')
         list_of_techniques = user_techniques.filter()[:5]
