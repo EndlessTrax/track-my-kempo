@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'dn%g_&c9g7hwt1+r!ws%iv2==eq6fbq$18#-=x75r!mcz4%%05'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['track-my-kempo.herokuapp.com']
 
@@ -132,7 +132,7 @@ EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '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'
+EMAIL_HOST_PASSWORD = 'Add your Key Here'
 
 USE_TZ = True
 TIME_ZONE = 'US/Eastern'
